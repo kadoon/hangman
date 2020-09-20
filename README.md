@@ -19,6 +19,6 @@ Uses:
 ### How to play the game ###
 
 * Open navigator
-* Access: http://localhost:3003/
+* Access: http://localhost:8080/ (using locally) or https://hangman-code.herokuapp.com/
 * Click in "new game"
 * Type letter and click em "submit letter"
