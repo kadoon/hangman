@@ -18,7 +18,7 @@
 
 				<div class="wall">
 					<form class="form" th:object="${gameRequest}" th:action="@{/}" autocomplete="off" id="formNewGame" method="post">
-						<input id="newGame" type="hidden" th:value="newGame" th:attr="name='action'" />
+						<input id="newGame" type="hidden" th:value="newGame" th:attr="name='action'"/>
 						<button id="newGameSubmit" class="btn btn-lg btn-primary	 btn-block" type="submit">New Game</button>
 					</form>
 				</div>
@@ -39,9 +39,9 @@
 
 				<div class="wall" th:if="${game?.wordId ne null and !game?.victory and !game?.defeat}">
 					<form class="form" th:object="${gameRequest}" th:action="@{/}" autocomplete="off" id="submitLetter" method="post">
-						<input id="letter" th:field="*{letter}" type="text" maxlength="1" class="form-control" onfocus="this.value=''" placeholder="Type here" /> 
-						<input id="wordId" type="hidden" th:value="${game?.wordId}" th:attr="name='wordId'" />
+						<input id="letter" th:field="*{letter}" type="text" maxlength="1" class="form-control" onfocus="this.value=''" placeholder="Type here" required/> 
 						
+						<input id="wordId" type="hidden" th:value="${game?.wordId}" th:attr="name='wordId'" />						
 						<input id="word" type="hidden" th:value="${game?.word}" th:attr="name='word'" /> 
 						<input id="misses" type="hidden" th:value="${game?.misses}" th:attr="name='misses'" /> 
 						<input id="missesCount" type="hidden" th:value="${game?.missesCount}" th:attr="name='missesCount'" /> 
