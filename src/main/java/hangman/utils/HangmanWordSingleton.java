@@ -1,13 +1,14 @@
 package hangman.utils;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.DefaultResourceLoader;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -89,8 +90,10 @@ public class HangmanWordSingleton {
      * @throws IOException
      */
 	private String readFile(String filePath) throws IOException {
-		File input = new DefaultResourceLoader().getResource(filePath).getFile();
-		return new String(Files.readAllBytes(Paths.get(input.getPath())));
+		InputStream inputStream = new DefaultResourceLoader().getResource(filePath).getInputStream();
+		StringWriter writer = new StringWriter();
+		IOUtils.copy(inputStream, writer, Charset.forName(HangmanConstants.UTF_8));
+		return writer.toString();
 	}
 
 }

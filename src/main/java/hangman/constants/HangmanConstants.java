@@ -24,6 +24,7 @@ public class HangmanConstants {
 	public static final String SPACE = " ";
 	public static final String UNDERLINE_AND_SPACE = "_ ";
 	public static final Integer MAX_MISSES = 6;
+	public static final String UTF_8 = "UTF-8";
 	
 	//Erros
 	public static final String GENERAL_ERROR_MESSAGE = "An error has occurred, please try again.";
