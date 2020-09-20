@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: hangman-assessment
+logging:
+  file: logs/spring-boot-looging.log
+  level:
+    hangman: ${LOG_LEVEL:INFO}
+    org.springframework: ${LOG_LEVEL:INFO}
+
+server:
+  port: ${SERVER_PORT:3003}
