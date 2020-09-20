@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.DefaultResourceLoader;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
@@ -89,7 +89,7 @@ public class HangmanWordSingleton {
      * @throws IOException
      */
 	private String readFile(String filePath) throws IOException {
-		File input = new ClassPathResource(filePath).getFile();
+		File input = new DefaultResourceLoader().getResource(filePath).getFile();
 		return new String(Files.readAllBytes(Paths.get(input.getPath())));
 	}
 

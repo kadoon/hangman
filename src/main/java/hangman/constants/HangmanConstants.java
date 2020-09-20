@@ -13,7 +13,7 @@ public class HangmanConstants {
 	}
 	
 	//words file path
-	public static final String WORD_FILE_PATH = "/files/words.xml";
+	public static final String WORD_FILE_PATH = "classpath:/files/words.xml";
 	
 	//Objects to ModelAndView
 	public static final String NEW_GAME = "newGame";
