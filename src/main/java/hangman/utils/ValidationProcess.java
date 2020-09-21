@@ -86,11 +86,18 @@ public class ValidationProcess {
 
 		//Missed letter
 		if (validateCharacter.isEmpty()) {
-			//add missed in response and missesCount			
-			String misses = StringUtils.appendIfMissing(gameRequest.getMisses(), HangmanConstants.SPACE + letter);
-
+			//add missed in response and missesCount		
+			
+			String misses = gameRequest.getMisses();
+			
+			//not contain letter, add missed
+			if(!gameRequest.getMisses().contains(letter)) {
+				misses = misses.concat(HangmanConstants.SPACE + letter);
+				
+				response.setMissesCount(misses.replaceAll(HangmanConstants.SPACE, "").length());
+			}
+			
 			response.setMisses(misses);
-			response.setMissesCount(misses.replaceAll(" ", "").length());
 			
 			return response;
 		}
